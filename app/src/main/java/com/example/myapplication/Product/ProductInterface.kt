@@ -4,5 +4,5 @@ import retrofit2.http.GET
 
 interface ProductInterface {
     @GET("products")
-    suspend fun getProduct(): Product
+    suspend fun getProduct(): ProductsResponse
 }

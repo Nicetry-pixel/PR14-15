@@ -1,4 +1,4 @@
-package com.example.myapplication.Product
+package com.example.myapplication.data.module
 
 data class ProductsResponse(
     val products: List<Product>

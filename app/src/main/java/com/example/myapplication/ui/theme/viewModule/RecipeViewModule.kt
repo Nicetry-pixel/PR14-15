@@ -13,10 +13,10 @@ class RecipeViewModule: ViewModel() {
             val mainrecipe = RetrofitClient.apirecipe.postRecipe(recipe)
             try {
                     Log.d(
-                        "RecipeResponse", "Название:${mainrecipe.name},\n " +
-                                "Ингредиенты:${mainrecipe.ingredients}," +
-                                "\nВремя готовки:${mainrecipe.cookTimeMinutes}" +
-                                "\nСложность:${mainrecipe.difficulty}"
+                        "RecipeResponse", "|Название:${mainrecipe.name}\n|" +
+                                "|Ингредиенты:${mainrecipe.ingredients}\n|" +
+                                "|Время готовки:${mainrecipe.cookTimeMinutes}\n|" +
+                                "|Сложность:${mainrecipe.difficulty}\n|"
                     )
             }
             catch(Exception: Exception){

@@ -11,9 +11,9 @@ class ProductViewModule: ViewModel() {
         viewModelScope.launch {
             val products = RetrofitClient.apiproduct.getProduct()
             for(product in products.products){
-                Log.d("ProductResponse", "Название:${product.title}," +
-                        "\nОписание:${product.description}," +
-                        "\nЦена:${product.price}")
+                Log.d("ProductResponse", "||Название:${product.title}||\n" +
+                        "||Описание:${product.description}||\n" +
+                        "||Цена:${product.price}||\n")
             }
 
         }

@@ -24,12 +24,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             val product = ProductViewModule()
             product.loadProduct()
-//            val ingredient = listOf("Куриное филе","сливки","чеснок","сливочное масло","растительное масло","твердый сыр","соль","черный перец","итальянские травы")
-//            val ggrecip = Recipe("Куриное филе в сливочно-чесночном соусе",
-//                ingredient,
-//                25, "Легкая")
-//            val rec = RecipeViewModule()
-//            rec.loadRecipe(ggrecip)
+            val ingredient = listOf("Куриное филе","сливки","чеснок","сливочное масло","растительное масло","твердый сыр","соль","черный перец","итальянские травы")
+            val ggrecip = Recipe("Куриное филе в сливочно-чесночном соусе",
+                ingredient,
+                25, "Легкая")
+            val rec = RecipeViewModule()
+            rec.loadRecipe(ggrecip)
         }
     }
 }

@@ -22,34 +22,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            val product = ProductViewModule()
+            product.loadProduct()
+//            val ingredient = listOf("Куриное филе","сливки","чеснок","сливочное масло","растительное масло","твердый сыр","соль","черный перец","итальянские травы")
+//            val ggrecip = Recipe("Куриное филе в сливочно-чесночном соусе",
+//                ingredient,
+//                25, "Легкая")
+//            val rec = RecipeViewModule()
+//            rec.loadRecipe(ggrecip)
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    val pr = ProductViewModule()
-//    pr.loadProduct()
-    val ingredient = listOf("Куриное филе","сливки","чеснок","сливочное масло","растительное масло","твердый сыр","соль","черный перец","итальянские травы")
-    val recipe = Recipe("Куриное филе в сливочно-чесночном соусе",
-        ingredient,
-        25, "Легкая")
-    val rec = RecipeViewModule()
-    rec.loadRecipe(recipe)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("")
     }
 }

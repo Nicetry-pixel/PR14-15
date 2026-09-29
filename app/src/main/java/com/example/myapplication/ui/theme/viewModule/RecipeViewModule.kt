@@ -10,12 +10,17 @@ import kotlinx.coroutines.launch
 class RecipeViewModule: ViewModel() {
     fun loadRecipe(recipe: Recipe){
         viewModelScope.launch {
-            val recipeis = RetrofitClient.apirecipe.postRecipe()
-            for(recipe in recipeis.recipe){
-                Log.d("RecipeResponse", "Название:${recipe.name},\n " +
-                        "Ингредиенты:${recipe.ingredients}," +
-                        "\nВремя готовки:${recipe.cookTimeMinutes}" +
-                        "\nСложность:${recipe.difficulty}")
+            val mainrecipe = RetrofitClient.apirecipe.postRecipe(recipe)
+            try {
+                    Log.d(
+                        "RecipeResponse", "Название:${mainrecipe.name},\n " +
+                                "Ингредиенты:${mainrecipe.ingredients}," +
+                                "\nВремя готовки:${mainrecipe.cookTimeMinutes}" +
+                                "\nСложность:${mainrecipe.difficulty}"
+                    )
+            }
+            catch(Exception: Exception){
+                    Log.d("Error","Error:${Exception.message}")
             }
         }
     }

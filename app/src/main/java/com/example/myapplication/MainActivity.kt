@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 //            val rec: RecipeViewModule = viewModel()
 //            rec.loadRecipe(ggrecip)
               val upuser: UserViewModel = viewModel()
-                upuser.loadUsers(userId = 15)
+                upuser.loadUsers(userId = 67)
         }
     }
 }

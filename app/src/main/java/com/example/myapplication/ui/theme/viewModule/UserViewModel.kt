@@ -15,7 +15,7 @@ class UserViewModel: ViewModel(){
             val updateuser = RetrofitClient.apiusers.putUser(userId,geteduser )
             try{
 
-                Log.d("GetUsers","|Id: ${geteduser.id}\n " +
+                Log.d("GetUsers","|Id: ${geteduser.id}\n" +
                         "|Имя: ${geteduser.firstName}\n" +
                         "|Фамилия: ${geteduser.lastName}\n" +
                         "|Возраст: ${geteduser.age}\n" +
@@ -28,7 +28,7 @@ class UserViewModel: ViewModel(){
                     29,
                     hair = Hair("темные","кудрявые")
                 )
-                Log.d("UpdatedUser","|Id: ${newuser.id}\n " +
+                Log.d("UpdatedUser","|Id: ${newuser.id}\n" +
                         "|Имя: ${newuser.firstName}\n" +
                         "|Фамилия: ${newuser.lastName}\n" +
                         "|Возраст: ${newuser.age}\n" +

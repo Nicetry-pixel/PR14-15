@@ -17,6 +17,7 @@ import com.example.myapplication.data.module.ProductsResponse
 import com.example.myapplication.data.module.Recipe
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.ui.theme.viewModule.RecipeViewModule
+import com.example.myapplication.ui.theme.viewModule.UserViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +27,14 @@ class MainActivity : ComponentActivity() {
 //            val product: ProductViewModule = viewModel()
 //            product.loadProduct()
 
-            val ingredient = listOf("Куриное филе","сливки","чеснок","сливочное масло","растительное масло","твердый сыр","соль","черный перец","итальянские травы")
-            val ggrecip = Recipe("Куриное филе в сливочно-чесночном соусе",
-                ingredient,
-                25, "Легкая")
-            val rec: RecipeViewModule = viewModel()
-            rec.loadRecipe(ggrecip)
+//            val ingredient = listOf("Куриное филе","сливки","чеснок","сливочное масло","растительное масло","твердый сыр","соль","черный перец","итальянские травы")
+//            val ggrecip = Recipe("Куриное филе в сливочно-чесночном соусе",
+//                ingredient,
+//                25, "Легкая")
+//            val rec: RecipeViewModule = viewModel()
+//            rec.loadRecipe(ggrecip)
+              val upuser: UserViewModel = viewModel()
+                upuser.loadUsers(userId = 15)
         }
     }
 }

@@ -16,6 +16,7 @@ import com.example.myapplication.ui.theme.viewModule.ProductViewModule
 import com.example.myapplication.data.module.ProductsResponse
 import com.example.myapplication.data.module.Recipe
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.ui.theme.viewModule.PostsViewModule
 import com.example.myapplication.ui.theme.viewModule.RecipeViewModule
 import com.example.myapplication.ui.theme.viewModule.UserViewModel
 
@@ -33,8 +34,11 @@ class MainActivity : ComponentActivity() {
 //                25, "Легкая")
 //            val rec: RecipeViewModule = viewModel()
 //            rec.loadRecipe(ggrecip)
-              val upuser: UserViewModel = viewModel()
-                upuser.loadUsers(userId = 67)
+//              val upuser: UserViewModel = viewModel()
+//                upuser.putUsers(userId = 67)
+
+              val delpost: PostsViewModule = viewModel()
+                delpost.deletePosts(30)
         }
     }
 }

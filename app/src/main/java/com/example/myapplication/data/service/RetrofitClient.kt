@@ -25,4 +25,5 @@ object RetrofitClient {
         .build()
     val apiproduct: ProductService = retrofit.create(ProductService:: class.java)
     val apirecipe: RecipeService = retrofit.create(RecipeService:: class.java)
+    val apideletePost: PostsService = retrofit.create(PostsService:: class.java)
 }

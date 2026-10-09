@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 class UserViewModel: ViewModel(){
     fun loadUsers(userId: Int){
         viewModelScope.launch {
-            val geteduser = RetrofitClient.apiusers.getUser(userId)
-            val updateuser = RetrofitClient.apiusers.putUser(userId,geteduser )
+            val geteduser = RetrofitClient.apiuser.getUser(userId)
+            val updateuser = RetrofitClient.apiuser.putUser(userId,geteduser )
             try{
 
                 Log.d("GetUsers","|Id: ${geteduser.id}\n" +

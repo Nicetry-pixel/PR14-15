@@ -6,5 +6,5 @@ import retrofit2.http.Header
 
 interface TodosService {
     @GET("todos")
-    suspend fun getTodos(): List<Todos>
+    suspend fun getTodos(@Header("Authorization")authHeader: String): List<Todos>
 }

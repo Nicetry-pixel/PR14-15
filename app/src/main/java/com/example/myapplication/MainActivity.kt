@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -18,6 +19,7 @@ import com.example.myapplication.data.module.Recipe
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.ui.theme.viewModule.PostsViewModule
 import com.example.myapplication.ui.theme.viewModule.RecipeViewModule
+import com.example.myapplication.ui.theme.viewModule.TodoViewModule
 import com.example.myapplication.ui.theme.viewModule.UserViewModel
 
 class MainActivity : ComponentActivity() {
@@ -34,11 +36,15 @@ class MainActivity : ComponentActivity() {
 //                25, "Легкая")
 //            val rec: RecipeViewModule = viewModel()
 //            rec.loadRecipe(ggrecip)
-//              val upuser: UserViewModel = viewModel()
+//                val upuser: UserViewModel = viewModel()
 //                upuser.putUsers(userId = 67)
 
-              val delpost: PostsViewModule = viewModel()
-                delpost.deletePosts(30)
+//              val delpost: PostsViewModule = viewModel()
+//                delpost.deletePosts(30)
+
+            val get_todo: TodoViewModule = viewModel()
+            get_todo.login("test_user","test_password")
+            //get_todo.loadTodos()
         }
     }
 }

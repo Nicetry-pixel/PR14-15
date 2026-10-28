@@ -12,7 +12,7 @@ class PostsViewModule: ViewModel() {
             val deletepost = RetrofitClient.apipostsdelete.deletePost(postId)
             try{
 
-                Log.d("DeletePosts" ,"|Id: ${deletepost.Id}\n" +
+                Log.d("DeletePosts" ,"|Id: ${deletepost.id}\n" +
                         "|isDeleted: ${deletepost.isDeleted}\n" +
                         "|deletedOn: ${deletepost.deletedOn}\n")
 

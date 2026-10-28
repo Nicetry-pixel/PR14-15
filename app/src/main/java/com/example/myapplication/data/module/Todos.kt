@@ -1,7 +1,7 @@
 package com.example.myapplication.data.module
 
 data class Todos(
-    val id: String,
+    val id: String? = null,
     val todo: String,
     val completed:	Boolean,
     val created: String,

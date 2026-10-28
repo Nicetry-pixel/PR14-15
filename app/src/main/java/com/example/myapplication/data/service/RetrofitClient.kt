@@ -1,6 +1,5 @@
 package com.example.myapplication.data.service
 
-import android.net.InetAddresses
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -9,6 +8,7 @@ import java.net.InetSocketAddress
 import java.net.Proxy
 
 object RetrofitClient {
+    private const val BASE_URL = "http://10.207.106.59:8090/api/collections/"
 
     val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
@@ -24,10 +24,12 @@ object RetrofitClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val swagger = Retrofit.Builder()
-        .baseUrl("http://10.207.106.59:8090/api/")
+        .baseUrl(BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+    val auth: AuthApiService = swagger.create(AuthApiService::class.java)
+    val todos: TodosService = swagger.create(TodosService::class.java)
     val apiproduct: ProductService = retrofit.create(ProductService:: class.java)
     val apirecipe: RecipeService = retrofit.create(RecipeService:: class.java)
     val apiuser: UserService = retrofit.create(UserService:: class.java)

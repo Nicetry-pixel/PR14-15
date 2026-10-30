@@ -34,5 +34,4 @@ object RetrofitClient {
     val apirecipe: RecipeService = retrofit.create(RecipeService:: class.java)
     val apiuser: UserService = retrofit.create(UserService:: class.java)
     val apipostsdelete = retrofit.create(PostsService:: class.java)
-    val apitodos = retrofit.create(TodosService:: class.java)
 }

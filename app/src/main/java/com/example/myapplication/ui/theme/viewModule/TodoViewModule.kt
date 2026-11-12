@@ -5,26 +5,37 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.module.LoginQuest
 import com.example.myapplication.data.service.RetrofitClient
+import com.example.myapplication.data.service.TokenDataStore
 import kotlinx.coroutines.launch
 
 class TodoViewModel: ViewModel() {
-    fun getTodo(loginRequest: LoginQuest){
+    fun getTodo(loginRequest: LoginQuest) {
         viewModelScope.launch {
             try {
 
-            val auth = RetrofitClient.auth.login(loginRequest)
+                val auth = RetrofitClient.auth.login(loginRequest)
 
-            val todos = RetrofitClient.todos.getTodos(auth.token)
+               // val todos = RetrofitClient.todos.getTodos(auth.token)
+                val token = auth.token
+                TokenDataStore.saveToken(token)
+                Log.d("TokenManager", "Токен успешно сохранен!")
 
-            for(todo in todos.items)
-                    Log.d("TodosViewModel", "id - ${todo.id}\n " +
-                            "todo - ${todo.todo}\n " +
-                            "completed -${todo.completed}\n " +
-                            "created - ${todo.created}\n " +
-                            "updated - ${todo.updated}")
-                }catch (ex: Exception){
-                    Log.e("viewModelScope", "${ex.message}")
+                val savedToken = TokenDataStore.getToken()
+                if (savedToken != null) {
+                    val todos = RetrofitClient.todos.getTodos(savedToken)
+
+                    for (todo in todos.items)
+                        Log.d(
+                            "TodosViewModel", "id - ${todo.id}\n " +
+                                    "todo - ${todo.todo}\n " +
+                                    "completed -${todo.completed}\n " +
+                                    "created - ${todo.created}\n " +
+                                    "updated - ${todo.updated}"
+                        )
                 }
+            } catch (ex: Exception){
+                Log.e("TodoViewModule","${ex.message}")
+            }
+        }
         }
     }
-}

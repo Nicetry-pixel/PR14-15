@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -17,6 +18,7 @@ import com.example.myapplication.data.module.LoginQuest
 import com.example.myapplication.ui.theme.viewModule.ProductViewModule
 import com.example.myapplication.data.module.ProductsResponse
 import com.example.myapplication.data.module.Recipe
+import com.example.myapplication.data.service.TokenDataStore
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.ui.theme.viewModule.AuthViewModel
 import com.example.myapplication.ui.theme.viewModule.PostsViewModule
@@ -27,6 +29,7 @@ import com.example.myapplication.ui.theme.viewModule.UserViewModel
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TokenDataStore.init(applicationContext)
         enableEdgeToEdge()
         setContent {
 //            val product: ProductViewModule = viewModel()
@@ -50,7 +53,9 @@ class MainActivity : ComponentActivity() {
 //                val authViewModel: AuthViewModel = viewModel()
 //                authViewModel.createUser(user)
                 val getTodosViewModel: TodoViewModel = viewModel()
+            LaunchedEffect(Unit) {
                 getTodosViewModel.getTodo(login)
+            }
         }
     }
 }

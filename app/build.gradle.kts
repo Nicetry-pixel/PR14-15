@@ -6,7 +6,7 @@ plugins {
 android {
     namespace = "com.example.myapplication"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
@@ -35,6 +35,7 @@ android {
     buildFeatures {
         compose = true
     }
+    buildToolsVersion = "36.1.0"
 }
 
 dependencies {

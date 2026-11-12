@@ -14,13 +14,10 @@ object RetrofitClient {
         level = HttpLoggingInterceptor.Level.BODY
     }
     val proxy = Proxy(Proxy.Type.HTTP, InetSocketAddress("10.207.106.59",3128))
-    class NetworkModule(
-        private val tokenManager: TokenDataStore
-    ) {
-        private val okHttpClient = OkHttpClient.Builder()
+
+        val okHttpClient = OkHttpClient.Builder()
             .proxy(proxy)
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(AuthInterceptor(tokenManager))
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
@@ -42,5 +39,4 @@ object RetrofitClient {
     val apirecipe: RecipeService = retrofit.create(RecipeService:: class.java)
     val apiuser: UserService = retrofit.create(UserService:: class.java)
     val apipostsdelete = retrofit.create(PostsService:: class.java)
-    }
 }

@@ -8,16 +8,19 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
-private val Context.dataStore by preferencesDataStore("auth_prefs")
 private val TOKEN_KEY = stringPreferencesKey("auth_token")
 
-class TokenDataStore (private val context: Context){
+object TokenDataStore{
+    private val Context.dataStore by preferencesDataStore("auth_prefs")
+    private var appContext: Context? = null
 
-    suspend fun saveToken(token: String){
-        context.dataStore.edit { prefs -> prefs[TOKEN_KEY] = token}
+    fun init (context: Context){
+        appContext = context.applicationContext
     }
 
-    suspend fun getToken(): String? = context.dataStore.data
-        .map{it[TOKEN_KEY]}
-        .first()
+    suspend fun saveToken(token: String){
+        appContext?.dataStore?.edit { prefs -> prefs[TOKEN_KEY] = token}
+    }
+
+    suspend fun getToken(): String? = appContext?.dataStore?.data?.first()?.get(TOKEN_KEY)
 }

@@ -12,5 +12,5 @@ fun TodoScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun TodoScreenPreview() {
-    
+
 }

@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun TodoSwitchRow(
+    title: String,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
@@ -58,7 +59,7 @@ fun TodoSwitchRow(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "Sales",
+            text = title,
             color = Color(0xFF242424),
             fontSize = 16.sp,
             lineHeight = 20.sp,
@@ -84,5 +85,5 @@ fun TodoSwitchRow(
 @Preview
 @Composable
 private fun TodoSwitchRowPreview(){
-    TodoSwitchRow(checked = true, onCheckedChange = {})
+    TodoSwitchRow(title = "Dimka", checked = true, onCheckedChange = {})
 }

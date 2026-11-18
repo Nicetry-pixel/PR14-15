@@ -25,8 +25,6 @@ class LoginViewModule: ViewModel() {
                 TokenDataStore.saveToken(token)
                 Log.d("TokenManager", "Токен успешно сохранен!")
 
-                val get1TodosViewModel = TodoViewModel()
-                get1TodosViewModel.getTodo()
             } catch(ex: Exception){
 
                 Log.e("LoginViewModule","${ex.message}")

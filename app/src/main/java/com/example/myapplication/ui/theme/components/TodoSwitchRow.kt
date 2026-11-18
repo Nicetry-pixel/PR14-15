@@ -57,7 +57,6 @@ fun TodoSwitchRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        // Текст "Sales"
         Text(
             text = "Sales",
             color = Color(0xFF242424),

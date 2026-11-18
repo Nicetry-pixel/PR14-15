@@ -9,16 +9,16 @@ import com.example.myapplication.data.service.TokenDataStore
 import kotlinx.coroutines.launch
 
 class TodoViewModel: ViewModel() {
-    fun getTodo(loginRequest: LoginQuest) {
+    fun getTodo() {
         viewModelScope.launch {
             try {
 
-                val auth = RetrofitClient.auth.login(loginRequest)
+               // val auth = RetrofitClient.auth.login(loginRequest)
 
                // val todos = RetrofitClient.todos.getTodos(auth.token)
-                val token = auth.token
-                TokenDataStore.saveToken(token)
-                Log.d("TokenManager", "Токен успешно сохранен!")
+                //val token = auth.token
+                //TokenDataStore.saveToken(token)
+                //Log.d("TokenManager", "Токен успешно сохранен!")
 
                 val savedToken = TokenDataStore.getToken()
                 if (savedToken != null) {

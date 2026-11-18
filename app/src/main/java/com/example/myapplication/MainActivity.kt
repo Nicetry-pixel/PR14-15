@@ -21,6 +21,7 @@ import com.example.myapplication.data.module.Recipe
 import com.example.myapplication.data.service.TokenDataStore
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.example.myapplication.ui.theme.viewModule.AuthViewModel
+import com.example.myapplication.ui.theme.viewModule.LoginViewModule
 import com.example.myapplication.ui.theme.viewModule.PostsViewModule
 import com.example.myapplication.ui.theme.viewModule.RecipeViewModule
 import com.example.myapplication.ui.theme.viewModule.TodoViewModel
@@ -52,9 +53,9 @@ class MainActivity : ComponentActivity() {
 
 //                val authViewModel: AuthViewModel = viewModel()
 //                authViewModel.createUser(user)
-                val getTodosViewModel: TodoViewModel = viewModel()
+                val getTodosViewModel: LoginViewModule = viewModel()
             LaunchedEffect(Unit) {
-                getTodosViewModel.getTodo(login)
+                getTodosViewModel.loginTodo(login)
             }
         }
     }
